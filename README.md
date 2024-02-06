@@ -36,10 +36,11 @@ Write a program in a language of your choosing that:
 This assignment is broken down into stages, starting with a basic route and 
 adding complexity as the stages progress. To accommodate this, some of the 
 inputs/outputs will be hardcoded in the beginning. You should write a single 
-program that extends functionality as you progress thorough the tasks.
+program that extends functionality as you progress thorough the steps. The 
+output of your final program should be as described in step 3.
 
 You *may* use external libraries to parse payment requests, but must write your
-own code for calculation of paths in the route and TLV encoding (in task 3).
+own code for calculation of paths in the route and TLV encoding (in step 3).
 
 Your solution should: 
 * Calculate fees [as described in bolt7](https://github.com/lightning/bolts/blob/master/07-routing-gossip.md#htlc-fees).
@@ -48,9 +49,9 @@ Your solution should:
 * May assume that payment requests will always have a non-zero amount 
   specified.
 
-## Task 1 - Simple Route
+## Step 1 - Simple Route
 
-For this task, you will create for a simple payment route that uses a single 
+For this step, you will create for a simple payment route that uses a single 
 HTLC.
 
 ### Input Format
@@ -61,7 +62,7 @@ a channel that is connected to your node, and the last hop is a channel that
 is connected to the destination node. 
 
 The CSV will have the following fields: 
-* `path_id`: a `uint32`, hardcoded to `0` for this task.
+* `path_id`: a `uint32`, hardcoded to `0` for this step.
 * `channel_name`: a `string` identifying the channel.
 * `cltv_delta`: a `uint32` representing the required delta for the hop.
 * `base_fee_msat`: a `uint64` fee expressed in millisatoshis charged per-htlc 
@@ -89,7 +90,7 @@ path_id,channel_name,cltv_delta,base_fee_msat,proportional_fee_ppm
 
 Your program will be expected to output each hop of the constructed route to 
 `stdout` with the following values:
-* `path_id`: a `uint32`, hardcoded to `0` for this task.
+* `path_id`: a `uint32`, hardcoded to `0` for this step.
 * `channel_name`: the `string` identifying the channel.
 * `htlc_amount_msat`: a `uint64` representing the htlc amount on that channel.
 * `htlc_expiry`: a `uint32` representing the expiry height of the htlc.
@@ -104,9 +105,9 @@ For the example above, your output should have the following format:
 
 Note that you do not need to include CSV headings in your output.
 
-## Task 2 - MPP Route
+## Step 2 - MPP Route
 
-For this task, you will create a payment route that uses multiple HTLCs to 
+For this step, you will create a payment route that uses multiple HTLCs to 
 pay a single payment. This is called a "multi-part payment", and is often used 
 in the network today to break up large payments to improve their chances of 
 successfully propagating through the network.
@@ -164,7 +165,7 @@ For the example above, your output should have the following format.
 2,GeorgeDave,amount,expiry,NULL
 ```
 
-## Task 3 - TLV Values
+## Step 3 - TLV Values
 
 The lightning protocol uses [type length value (TLV)](https://github.com/lightning/bolts/blob/master/01-messaging.md#type-length-value-format)
 encoded fields to flexibly extend the protocol's functionality. These values 
@@ -199,7 +200,7 @@ a single path.
 
 ### Input Format
 
-The input format for this task is unchanged from the previous one.
+The input format for this step is unchanged from the previous one.
 
 For the purposes of this example, assume that the payment address and total 
 amount are as follows:
@@ -225,7 +226,7 @@ tlv payload should still have NULL values.
 
 ## Submission
 
-Once you have completed the tasks, submit the following to the 
+Once you have completed the steps, submit the following to the 
 [submissions](/submissions) folder:
 
 * The source code for your solution.
