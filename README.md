@@ -86,6 +86,8 @@ path_id,channel_name,cltv_delta,base_fee_msat,proportional_fee_ppm
 0,CarolDave,15,0,3000
 ```
 
+Note that column headings *will* be included for the input file.
+
 ### Output Format
 
 Your program will be expected to output each hop of the constructed route to 
@@ -103,7 +105,8 @@ For the example above, your output should have the following format:
 0,CarolDave,amount,expiry,NULL
 ```
 
-Note that you do not need to include CSV headings in your output.
+Note that you do not need to include CSV headings in your output, but you 
+*must trim all whitespace*.
 
 ## Step 2 - MPP Route
 
@@ -231,4 +234,6 @@ Once you have completed the steps, submit the following to the
 
 * The source code for your solution.
 * Bash script in [run.sh](/submissions/run.sh) that will run your program 
-  with the arguments provided.
+  with the arguments provided. 
+  * Expect this script to be run from within the [submissions](/submissions) 
+    directory, i.e: `./run.sh {input.csv path} {payment_request} {height}`
