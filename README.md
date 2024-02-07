@@ -237,3 +237,11 @@ Once you have completed the steps, submit the following to the
   with the arguments provided. 
   * Expect this script to be run from within the [submissions](/submissions) 
     directory, i.e: `./run.sh {input.csv path} {payment_request} {height}`
+  with the arguments provided.
+
+## Assessment
+
+There is **no autograder** to check the validity of your solution for 
+this assignment. We do have a simple build check that ensures that 
+your program builds and runs with the script that you have provided, 
+but it will not assess your solution.
