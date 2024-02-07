@@ -227,6 +227,18 @@ tlv payload should still have NULL values.
 2,GeorgeDave,amount,expiry,00000000000000080000000000000028b3c3965128b05c96d76348158f8f3a1b92e2847172f9adebb400a9e83e62f0660000000000000078
 ```
 
+## Assessment
+
+There is **no autograder** to check the validity of your solution for 
+this assignment. There are two tests included with the assignment: 
+* Sanity check: a basic check that your [run.sh](submissions/run.sh) 
+  is working.
+* Done: a test that **intentionally fails** until you update 
+  [done.sh](submissions/done.sh) to signal that your assignment is 
+  ready for manual grading.
+  * You must only fix this test **when you are ready to be graded**, 
+    you will not get a second chance at submission.
+
 ## Submission
 
 Once you have completed the steps, submit the following to the 
@@ -238,10 +250,8 @@ Once you have completed the steps, submit the following to the
   * Expect this script to be run from within the [submissions](/submissions) 
     directory, i.e: `./run.sh {input.csv path} {payment_request} {height}`
   with the arguments provided.
+* When you are satisfied with your solution, follow the instruction in 
+  [done.sh](submissions/done.sh) to signal that you are ready for 
+  manual assessment.
 
-## Assessment
 
-There is **no autograder** to check the validity of your solution for 
-this assignment. We do have a simple build check that ensures that 
-your program builds and runs with the script that you have provided, 
-but it will not assess your solution.
