@@ -24,8 +24,8 @@ Write a program in a language of your choosing that:
 - Accepts three arguments: 
   - 0: an absolute path to a csv file containing a set of hops in a lightning 
        network route.
-  - 1: a hex-encoded regtest payment request, which provides the details of the
-       payment to be made over the route.
+  - 1: a bech32-encoded regtest payment request, which provides the details of 
+       the payment to be made over the route.
   - 2: the current block height, expressed as a uint32.
 - Uses the routing policies of the hops provided to produce the values for the 
   HTLCs that will be used to make a payment for the amount and block height 
@@ -120,7 +120,8 @@ successfully propagating through the network.
 The `path_id` input variable that was hardcoded in the previous exercise will 
 be set to represent the various paths your multi-part payment should take. 
 You must *split the payment amount equally between the number of paths provided
-in the input file*.
+in the input file*. You may assume that the payment amount will always be 
+divisible by the number of paths.
 
 #### Example Input: 
 
@@ -253,5 +254,4 @@ Once you have completed the steps, submit the following to the
 * When you are satisfied with your solution, follow the instruction in 
   [done.sh](submissions/done.sh) to signal that you are ready for 
   manual assessment.
-
 
