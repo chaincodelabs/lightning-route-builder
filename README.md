@@ -43,7 +43,8 @@ You *may* use external libraries to parse payment requests, but must write your
 own code for calculation of paths in the route and TLV encoding (in step 3).
 
 Your solution should: 
-* Calculate fees [as described in bolt7](https://github.com/lightning/bolts/blob/master/07-routing-gossip.md#htlc-fees).
+* Calculate fees [as described in bolt7](https://github.com/lightning/bolts/blob/master/07-routing-gossip.md#htlc-fees), 
+  using integer division.
 * Obtain payment details (such as payment amount and minimum final 
   CLTV delta) from the payment request.
 * May assume that payment requests will always have a non-zero amount 
@@ -87,6 +88,19 @@ path_id,channel_name,cltv_delta,base_fee_msat,proportional_fee_ppm
 ```
 
 Note that column headings *will* be included for the input file.
+
+Each channel in the lightning network has two forwarding policies, one for each 
+direction, advertised by each node. For simplicity, we have only included the 
+policies in the direction that your payment will be propagated. 
+
+The example input above represents the following [channel_update](https://github.com/lightning/bolts/blob/master/07-routing-gossip.md#the-channel_update-message)
+policies being advertised: 
+* Alice requires a `cltv_delta`=40, `fee_base_msat`=1000 and 
+  `fee_proportional_millionths`=10 to forward HTLCs over her channel with Bob.
+* Bob requires a `cltv_delta`=65, `fee_base_msat`=2000 and 
+  `fee_proportional_millionths`=500 to forward HTLCs over his channel with Carol.
+* Carol requires a `cltv_delta`=15, `fee_base_msat`=0 and 
+  `fee_proportional_millionths`=3000 to forward HTLCs over her channel with Dave.
 
 ### Output Format
 
